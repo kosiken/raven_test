@@ -2,8 +2,10 @@ import { IConfig } from '../config/interface'
 import logger from '../utils/Logger';
 import knex, { Knex } from 'knex';
 import * as path from 'path'
+import Logger from '../utils/Logger';
 
 export class Database {
+
   public static getInstance(): Database {
     return Database.instance;
   }
@@ -35,12 +37,12 @@ export class Database {
         }
     )
       const migrations = path.join(__dirname, 'migrations');
-      console.log(migrations, path.join(__dirname, 'migrations'));
+      Logger.log(migrations + ' ' + path.join(__dirname, 'migrations'));
      
     const m = await  this.db.migrate.latest({
       directory: path.join(__dirname, 'migrations')
     })
-    console.log('migrations ' + m);
+    Logger.log('migrations ' + m);
     this.isSet = true;
 
 

@@ -16,7 +16,14 @@ before(function(done) {
     const mySqlContainerInit = new MySqlContainer("mysql:8.0")
     .withDatabase("raven_test")
     .withUsername("lion")
-    .withUserPassword("password");
+    .withUserPassword("password")
+    .withExposedPorts(
+      {
+        container: 3306,
+        host: 4000
+      }
+    );
+    
 
   
     return mySqlContainerInit.start()

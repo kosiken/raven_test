@@ -1,9 +1,7 @@
-import { ErrorCallback, retry } from 'async';
 import * as compression from 'compression';
 import * as cors from 'cors';
 import * as express from 'express';
 import { Application } from 'express';
-import * as fs from 'fs';
 import { Server } from 'http';
 
 import { IConfig } from './config/interface';
@@ -19,10 +17,7 @@ const middlewares = [
   compression(),
   express.json(),
   express.urlencoded({ extended: true }),
-//   express.static('./public'),
-//   express.static('./public/css'),
-  // passport.initialize(),
-  // passport.session(),
+ 
   requestLogger,
 ];
 

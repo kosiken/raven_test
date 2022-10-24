@@ -9,7 +9,7 @@
   "scripts": {
     "tests": "NODE_ENV=test mocha --debug -r ts-node/register tests/lifecycle.test.ts tests/**/*.ts",
     "dev": "nodemon src/app.ts",
-    "start": "nodemon src/app.t"
+    "start": "nodemon src/app.ts"
   },
   "dependencies": {
     "@hapi/joi": "^17.1.1",
