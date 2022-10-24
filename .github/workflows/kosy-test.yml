@@ -38,7 +38,7 @@ jobs:
        
       - name: Setup yarn
         run: npm install -g yarn
-      - name: postgres
+      - name: mysql
         run: docker pull mysql:8.0
 
       - name: Docker testcontainers/ryuk:0.3.2
