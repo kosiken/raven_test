@@ -7,9 +7,9 @@
   "license": "MIT",
   "private": false,
   "scripts": {
-    "test:m": "NODE_ENV=test mocha --debug -r ts-node/register tests/lifecycle.test.ts tests/**/*.ts",
+    "tests": "NODE_ENV=test mocha --debug -r ts-node/register tests/lifecycle.test.ts tests/**/*.ts",
     "dev": "nodemon src/app.ts",
-    "start": "odemon src/app.t"
+    "start": "nodemon src/app.t"
   },
   "dependencies": {
     "@hapi/joi": "^17.1.1",
