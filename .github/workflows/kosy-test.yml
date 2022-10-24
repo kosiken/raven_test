@@ -1,0 +1,51 @@
+# This workflow will build a package using Maven and then publish it to GitHub packages when a release is created
+# For more information see: https://github.com/actions/setup-java/blob/main/docs/advanced-usage.md#apache-maven-with-a-settings-path
+
+name: Test backend
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+env:
+    JWT_SECRET: secret
+    DB_USER: lion
+    DB_PASSWORD: password
+    DB_HOST: 127.0.0.1
+    DB_PORT: 3306
+    DB_NAME: raven_test
+    SERVER_PORT: 8080
+    RAVE_SECRET: RVSEC-ea47b9475c1d093cdea338846fdd98e3e335fc24025d5818c9eb35e6e356c87824b90c75f934af4068fba446a9eec0af-1666565526058
+    TRX_SECRET: mysecret
+    TEST_DEFAULT_BALANCE: 100
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        node-version: [16.x, 17.x]
+    steps:
+      - name: Checkout Git
+        uses: actions/checkout@v2
+      - name: Use Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v1
+        with:
+         node-version: ${{ matrix.node-version }}
+      - name: Get redis
+        run: docker pull redis:6.0
+       
+      - name: Setup yarn
+        run: npm install -g yarn
+      - name: postgres
+        run: docker pull postgres:11
+
+      - name: Docker testcontainers/ryuk:0.3.0
+        run: docker pull testcontainers/ryuk:0.3.0
+
+      - name: Install Packages
+        run: yarn
+      
+      - name: Run tests
+        run: yarn run custom-tests

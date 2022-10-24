@@ -1,0 +1,35 @@
+{
+    "compilerOptions": {
+      "rootDir": "src",
+      "baseUrl": "./",
+      "module": "commonjs",
+      "target": "es2017",
+      "noImplicitAny": false,
+      "outDir": "./build",
+      "sourceMap": true,
+      "emitDecoratorMetadata": true,
+      "experimentalDecorators": true,
+      "strict": true,
+      "noImplicitThis": false,
+      "skipLibCheck": true,
+      "resolveJsonModule": true
+    },
+    "include": ["app/**/*", "./**/*.ts"],
+    "exclude": [
+      "node_modules",
+      "build",
+      "dist",
+      "src/config",
+      "release",
+      "tests",
+      "scripts",
+      "./**/*.test.ts",
+      "./**/*.spec.ts"
+    ],
+    "awesomeTypescriptLoaderOptions": {
+      "useBabel": true,
+      "useCache": true,
+      "useTranspileModule": true
+    }
+  }
+  
