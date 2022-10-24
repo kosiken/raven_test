@@ -42,7 +42,7 @@ describe('User tests', () => {
                 user_id: user.user_id,
                 bank_account_name: "Raven/Kosy - " + `${user.first_name} ${user.last_name}`,
                 bank_name: "Wema Bank",
-                bank_balance: 0,
+                bank_balance: parseInt(process.env.TEST_DEFAULT_BALANCE!, 10),
             })
         })      
     })
