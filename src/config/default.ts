@@ -1,4 +1,6 @@
 /* tslint:disable:no-var-requires */
+require('dotenv').config();
+
 import { IConfig } from './interface';
 
 export const defaultConfig: IConfig = {

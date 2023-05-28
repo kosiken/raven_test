@@ -24,6 +24,7 @@ export class Database {
   }
 
   public async setupDb(config: IConfig) {
+    if(this.isSet) return;
 
     this.db = knex(
         {
@@ -50,7 +51,8 @@ export class Database {
 
   public async closeDb() {
     if(this.isSet) {
-        this.db!.destroy();
+       await this.db!.destroy();
+       this.isSet= false;
       }
   }
 

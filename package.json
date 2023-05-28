@@ -55,6 +55,7 @@
     "nodemon": "^2.0.20",
     "supertest": "^6.3.0",
     "testcontainers": "^8.16.0",
-    "ts-node": "^10.9.1"
+    "ts-node": "^10.9.1",
+    "tsc": "^2.0.4"
   }
 }
